@@ -1,3 +1,17 @@
+# Run Docker 
+First generate a ssh key pair
+```
+ssh-keygen -f docker_rsa
+```
+Second run the docker compose file
+```
+docker compose up -d
+```
+Thirdly ssh to docker container
+```
+ssh root@localhost -p 1022 -i docker_rsa
+```
+
 # Accelerating Reinforcement Learning with Learned Skill Priors
 #### [[Project Website]](https://clvrai.github.io/spirl/) [[Paper]](https://arxiv.org/abs/2010.11944)
 

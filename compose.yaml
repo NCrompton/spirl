@@ -1,0 +1,17 @@
+services:
+    spirl:
+        build: .
+        ports:
+            - "1022:22"
+        platform: linux/x86_64
+        volumes:
+            - ./:/app
+            - /tmp/.X11-unix:/tmp/.X11-unix
+        environment:
+            - DISPLAY=${HOSTNAME}:0
+            - EXP_DIR=/app/experiments
+            - DATA_DIR=/app/data
+            - LD_LIBRARY_PATH=/root/.mujoco/mujoco210/bin:${LD_LIBRARY_PATH}
+            - LD_LIBRARY_PATH=/usr/local/nvidia/lib64:${LD_LIBRARY_PATH}
+        command: >
+            bash -c " python3 -m pip install -e . && /usr/sbin/sshd -D"

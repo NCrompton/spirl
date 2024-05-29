@@ -1,0 +1,46 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python Debugger: SPIRL/skill-prior",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/spirl/rl/train.py",
+            "console": "integratedTerminal",
+            "args": [
+                "--path",
+                "spirl/configs/skill_prior_learning/kitchen/flat"
+            ],
+            "env": {
+                "EXP_DIR": "./experiments",
+                "DATA_DIR": "./data",
+                "LD_LIBRARY_PATH": "/usr/local/nvidia/lib64:/root/.mujoco/mujoco210/bin",
+                "DISPLAY": "docker.for.mac.host.internal:0"
+            }
+        },
+        {
+            "name": "Python Debugger: SPIRL/SAC",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/spirl/rl/train.py",
+            "console": "integratedTerminal",
+            "args": [
+                "--path",
+                "spirl/configs/rl/kitchen/SAC",
+                "--seed",
+                "0",
+                "--prefix",
+                "SAC_kitchen_seed0"
+            ],
+            "env": {
+                "EXP_DIR": "./experiments",
+                "DATA_DIR": "./data",
+                "LD_LIBRARY_PATH": "/usr/local/nvidia/lib64:/root/.mujoco/mujoco210/bin",
+                "DISPLAY": "docker.for.mac.host.internal:0"
+            }
+        }
+    ]
+}
